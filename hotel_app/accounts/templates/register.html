@@ -1,0 +1,56 @@
+{% extends "login_base.html" %}
+{% block contant %}
+   <!-- Contact Start -->
+   <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Authanticate Us</h6>
+            <h1 class="mb-5">Register</h1>
+        </div>
+        <div class="row g-4 d-flex justify-content-center">
+            
+            <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                {% for message in messages%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" name="fname" placeholder="Your Name" required>
+                                <label for="fname">First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" name="lname" placeholder="Your Name" required>
+                                <label for="lname">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="name" name="email" placeholder="Your Name" required>
+                                <label for="name">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="email" name="password" placeholder="Your Email" required>
+                                <label for="email">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+{% endblock %}

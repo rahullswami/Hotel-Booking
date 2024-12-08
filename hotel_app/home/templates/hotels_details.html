@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block contant %}
+{% block css %}
+<style>
+    .service-item .p-4 img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .slideInDown input {
+        background-color: rgb(238, 238, 238);
+    }
+</style>
+{% endblock %}
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+            <h1 class="mb-5">Our Services</h1>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <img class="img-fluid position-absolute w-100 h-100"
+                                src="/media/{{hotel.paper_images.first.image}}" alt="" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                        <h1 class="mb-4">Welcome to <span class="text-primary">{{hotel.hname}}</span></h1>
+                        <p class="mb-4">{{hotel.hdesc}}</p>
+                        <div class="row gy-2 gx-4 mb-4">
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City
+                                    Hotel</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'booking' %}">Book Hotel</a>
+                    </div>
+                </div>
+                <div class="row g-4 my-5">
+                    {% for image in hotel.paper_images.all %}
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item rounded pt-3">
+                            <div class="service-item rounded pt-3">
+                                <div class="p-4">
+
+                                    <a href="{{ image.image.url }}"> <img src="{{ image.image.url }}"
+                                            class="fa-globe text-primary mb-4" alt="{{ hotel.hname }}">
+                                </div></a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block contant %}
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            {% if hotelbook %}
+            {% for i in hotelbook %}
+
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">Your Booking</h6>
+                <h1 class="mb-4">Welcome to <span class="text-primary">{{i.destination}}</span></h1>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{i.fullname}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{i.email}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{i.datetime}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{i.destination}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{i.message}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'update_booking' i.id %}">Booking Update</a>
+                <a class="btn btn-danger py-3 px-5 mt-2" href="{% url 'delete_booking' i.id %}">Booking Delete</a>
+            </div>
+
+            {% endfor %}
+            {% else %}
+                <p>No bookings found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+{% endblock %}
